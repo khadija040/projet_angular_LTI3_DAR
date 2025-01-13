@@ -1,0 +1,47 @@
+/* Utilisation de Tailwind pour le style général */
+.nav {
+    @apply relative w-[100%] list-none hover:bg-white mb-10 rounded-tl-[30px] rounded-bl-[30px] font-bold;
+}
+
+.ahref {
+    @apply relative block w-[100%] flex decoration-[none] text-white hover:text-purple-500;
+}
+
+.icon {
+    @apply relative block min-w-[60px] h-[60px] text-center leading-[60px];
+}
+
+.i {
+    @apply text-3xl;
+}
+
+.title {
+    @apply relative block h-[60px] leading-[60px] px-[10px] py-0 text-start whitespace-nowrap;
+}
+
+/* Pseudo-éléments pour l'effet 'hovered' */
+.nav.hovered::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px white;
+    pointer-events: none;
+}
+
+.nav.hovered::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px white;
+    pointer-events: none;
+}

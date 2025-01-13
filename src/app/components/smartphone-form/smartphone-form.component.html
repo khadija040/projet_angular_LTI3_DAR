@@ -1,0 +1,80 @@
+<div class="max-w-2xl mx-auto mt-8 p-4 bg-purple-100 rounded shadow">
+  <h2 class="text-2xl font-bold text-center mb-6">Ajouter un Smartphone</h2>
+  <form (ngSubmit)="onSubmit()" class="space-y-4">
+    <!-- Nom -->
+    <div>
+      <label for="nom" class="block text-sm font-medium text-gray-700">Nom :</label>
+      <input 
+        id="nom" 
+        (ngModel)="smartphone.nom" 
+        name="nom" 
+        class="mt-1 w-full p-2 border rounded focus:ring focus:ring-blue-300"
+        placeholder="Entrez le nom"
+      />
+    </div>
+
+    <!-- Marque -->
+    <div>
+      <label for="marque" class="block text-sm font-medium text-gray-700">Marque :</label>
+      <input 
+        id="marque" 
+        (ngModel)="smartphone.marque" 
+        name="marque" 
+        class="mt-1 w-full p-2 border rounded focus:ring focus:ring-blue-300"
+        placeholder="Entrez la marque"
+      />
+    </div>
+    <!-- Description -->
+    <div>
+      <label for="Description" class="block text-sm font-medium text-gray-700">Description :</label>
+    <textarea name="Description" id="description" (ngModel)="smartphone.marque" name="Description" 
+    class="mt-1 w-full p-2 border rounded focus:ring focus:ring-blue-300"></textarea>
+    </div>
+
+    <!-- Prix -->
+    <div>
+      <label for="price" class="block text-sm font-medium text-gray-700">Prix :</label>
+      <input 
+        id="prix" 
+        type="number" 
+        (ngModel)="smartphone.prix" 
+        name="prix" 
+        class="mt-1 w-full p-2 border rounded focus:ring focus:ring-blue-300"
+        placeholder="Entrez le prix"
+      />
+    </div>
+    <!-- Photo-->
+    <div>
+      <label for="photo" class="block text-sm font-medium text-gray-700">Photo :</label>
+      <input type="image" id="photo" (ngModel)="smartphone.photo" name="photo" 
+        class="mt-1 w-full p-2 border border-red-200 rounded" placeholder="Photo"/>
+    </div>
+    <!-- Ram -->
+    <div class="space-y-4">
+      <label for="ram" class="block text-sm font-medium text-gray-700">Ram :</label>
+
+      <div class="flex items-center space-x-3">
+        <label for="bas de gamme" class= " text-sm font-medium text-gray-500 ">Bas de gamme: 4Go</label>
+        <input type="radio"(ngModel)="smartphone.ram" class="check"/></div>
+
+      <div class="flex items-center space-x-3">
+        <label for="moyenne gamme" class=" text-sm font-medium text-gray-500 ">Moyenne gamme: 8Go</label>
+        <input type="radio"(ngModel)="smartphone.ram"  class="check"/></div>
+
+    <div class="flex items-center space-x-3">
+      <label for="moyenne gamme" class=" text-sm font-medium text-gray-500 ">Haut de gamme: 16Go</label>
+      <input type="radio"(ngModel)="smartphone.ram" class="check"/></div>
+
+    </div>
+
+    <!-- Bouton -->
+     <div class="flex justify-center">
+    <button 
+      type="submit" 
+      class="w-64 bg-red-400 text-white py-2 rounded hover:bg-red-200 "
+    >
+      Ajouter
+    </button>
+  </div>
+  </form>
+</div>

@@ -1,0 +1,5 @@
+/* src/app/checkbox/checkbox.component.css */
+.check {
+    @apply w-5 h-5 text-red-500 border-gray-300 rounded focus:ring-red-300;
+  }
+  

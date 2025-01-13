@@ -1,0 +1,23 @@
+      <a href="#" class="ahref">  <!-- fonctionnalites admin-->
+                        <span class="icon"><i class='bx bxs-package i'></i></span>   <!-- icon-->
+                        <span class="title">Stock</span> 
+                    </a>
+                </li>
+                <li class="nav">
+                    <a href="#" class="ahref">
+                        <span class="icon"><i class='bx bxs-cart i'></i></span>   <!-- icon-->
+                        <span class="title">Commandes </span>   <!-- title-->
+                    </a>
+                </li>
+                <li class="nav">
+                    <a href="#" class="ahref">
+                        <span class="icon"><i class='bx bxs-envelope i'></i></span>   <!-- icon-->
+                        <span class="title">Messages</span>   <!-- title-->
+                    </a>
+                </li>
+                <li class="nav">
+                    <a href="#" class="ahref">
+                        <span class="icon"><i class='bx bx-log-out-circle i'></i></span>   <!-- icon-->
+                        <span class="title">Déconnexion</span>   <!-- title-->
+                    </a>
+                </li>

@@ -1,0 +1,23 @@
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+<body class="font-sans[ubunto] m-0 p-0 box-border min-h-[100vh] overflow-hidden">
+    <!-- Container-->
+    <div class="relative w-[100%]">
+        <!-- Nav menu-->
+        <div class="fixed w-[300px] h-[100%] bg-purple-400 border-l-8 border-purple-800 border-solid transition-all duration-500 overflow-hidden" >
+            <ul class="absolute top-0 left-0 w-[100%]">
+                <li class="text-white font-sans ml-20 font-bold text-2xl mb-[15px] mt-[5px]">{{title}}</li>
+
+                <li class="nav" *ngFor="let list of lists">
+                    <a href="#" class="ahref">
+                        <span class="icon"><i class='{{list.icon}}'></i></span>   <!-- icon-->
+                        <span class="title">{{list.nom}}</span>   <!-- title-->
+                    </a>
+                </li> 
+            </ul>
+        </div>
+    </div>
+    
+  
+</body>
+
