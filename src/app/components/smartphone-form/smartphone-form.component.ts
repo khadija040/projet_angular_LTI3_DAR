@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import{FormBuilder,FormGroup,Validators,ReactiveFormsModule} from '@angular/forms';
+import { Smartphone} from '../../models/smartphone.models';
 
 
 @Component({
@@ -7,24 +8,34 @@ import { CommonModule } from '@angular/common';
   imports: [],
   templateUrl: './smartphone-form.component.html',
   styleUrl: './smartphone-form.component.css'
+  standalone: true,  // Si vous utilisez l'approche de composants autonomes, ajoutez cette ligne
+  imports: [ReactiveFormsModule] 
 })
 export class SmartphoneFormComponent {
-  smartphone = {
-    nom: '',
-    marque: '',
-    description: '',
-    prix: 0,
-    photo: '',
-    ram: null,
-    rom: '',
-    ecran: '',
-    couleurs: '',
-  };
+  smartphoneForm: FormGroup;//formgroup pour utiliser les methodes valid value dirty
 
-  onSubmit() {
-    console.log('Smartphone ajouté :', this.smartphone);
-    alert('Smartphone ajouté avec succès !');
-    this.smartphone = { nom: '', marque: '', description: '', prix:0 ,
-     photo:'', ram: null, rom:'', ecran:'', couleurs:'' }; // Réinitialiser le formulaire
+constructor(private fb: FormBuilder){
+  this.smartphoneForm = this.fb.group({
+    nom: ['',[Validators.required]],
+    marque: ['',[Validators.required]],
+    description: ['',[Validators.required]],
+    prix: [0,[Validators.required,Validators.min(0)]],
+    photo: ['',[Validators.required]],
+    ram: ['',[Validators.required,Validators.min(1)]],
+    rom: ['',[Validators.required,Validators.min(1)]],
+    ecran: ['',[Validators.required]],
+    couleur: ['',[Validators.required]],
+  });
+}
+
+ //soumission du formulaire
+ onSubmit() {
+  if (this.smartphoneForm.valid) {
+    const formData: Smartphone = this.smartphoneForm.value as Smartphone; // Conversion explicite
+    console.log('Formulaire soumis avec succès :', formData);
+    // Appelle ton service API avec `formData`
+  } else {
+    console.error('Formulaire invalide.');
   }
+}
 }
