@@ -1,3 +1,64 @@
-<form [formGroup]="smartphoneForm" (ngSubmit)="onSubmit">
+<form [formGroup]="smartphoneForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nom">Nom:</label>
+    <input type="text" name="nom" id="nom" formControlName="nom">
+  </div>
 
+  <div>
+    <label for="marque">Marque:</label>
+    <input type="text" name="marque" id="marque" formControlName="marque">
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" formControlName="description"></textarea>
+  </div>
+
+  <div>
+    <label for="prix">Prix:</label>
+    <input type="number" name="prix" id="prix" formControlName="prix">
+  </div>
+
+  <div>
+    <label>Photo :</label>
+    <input type="file" (change)="onFileChange($event)" />
+  </div>
+
+  <div>
+    <label>RAM (Go) :</label>
+    <select formControlName="ram">
+      <option value="2">2 Go</option>
+      <option value="4">4 Go</option>
+      <option value="6">6 Go</option>
+      <option value="8">8 Go</option>
+      <option value="12">16 Go</option>
+    </select>
+  </div>
+
+  <div>
+    <label>ROM (Go) :</label>
+    <select formControlName="rom">
+      <option value="32">32 Go</option>
+      <option value="64">64 Go</option>
+      <option value="128">128 Go</option>
+      <option value="256">256 Go</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Ecran :</label>
+    <input type="text" formControlName="ecran" />
+  </div>
+
+  <div>
+    <label for="couleur">Couleur:</label>
+    <select formControlName="couleur" id="couleur">
+      <option value="Rouge">Rouge</option>
+      <option value="Bleu">Bleu</option>
+      <option value="Noir">Noir</option>
+      <option value="Blanc">Blanc</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="!smartphoneForm.valid">Ajouter</button>
 </form>

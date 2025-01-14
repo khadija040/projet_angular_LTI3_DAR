@@ -5,7 +5,7 @@ import { DashboardAdminComponent } from "./components/dashboard-admin/dashboard-
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,DashboardAdminComponent],
+  imports: [RouterOutlet, DashboardAdminComponent, SmartphoneFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
