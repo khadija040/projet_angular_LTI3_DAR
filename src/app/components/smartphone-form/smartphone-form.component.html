@@ -1,3 +1,5 @@
+<div>
+  <h2>Ajouter un Smartphone</h2>
 <form [formGroup]="smartphoneForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="nom">Nom:</label>
@@ -27,21 +29,21 @@
   <div>
     <label>RAM (Go) :</label>
     <select formControlName="ram">
-      <option value="2">2 Go</option>
-      <option value="4">4 Go</option>
-      <option value="6">6 Go</option>
-      <option value="8">8 Go</option>
-      <option value="12">16 Go</option>
+      <option value="2">2</option>
+      <option value="4">4</option>
+      <option value="6">6</option>
+      <option value="8">8</option>
+      <option value="12">16</option>
     </select>
   </div>
 
   <div>
     <label>ROM (Go) :</label>
     <select formControlName="rom">
-      <option value="32">32 Go</option>
-      <option value="64">64 Go</option>
-      <option value="128">128 Go</option>
-      <option value="256">256 Go</option>
+      <option value="32">32 </option>
+      <option value="64">64</option>
+      <option value="128">128</option>
+      <option value="256">256</option>
     </select>
   </div>
 
@@ -62,3 +64,4 @@
 
   <button type="submit" [disabled]="!smartphoneForm.valid">Ajouter</button>
 </form>
+</div>
