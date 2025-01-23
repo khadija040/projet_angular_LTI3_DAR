@@ -5,7 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      colors: {
+        deppBurgundy: '#650015', // Nom personnalisé
+        deepRed: '#CC0000',
+        wineRed: '#9F1D35',
+        scarlet: '#650016',
+      },
     },
   },
   plugins: [],

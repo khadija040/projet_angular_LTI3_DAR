@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SmartphoneFormComponent } from './smartphone-form.component';
+import { SearchComponent } from './search.component';
 
-describe('SmartphoneFormComponent', () => {
-  let component: SmartphoneFormComponent;
-  let fixture: ComponentFixture<SmartphoneFormComponent>;
+describe('SearchComponent', () => {
+  let component: SearchComponent;
+  let fixture: ComponentFixture<SearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SmartphoneFormComponent]
+      imports: [SearchComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SmartphoneFormComponent);
+    fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

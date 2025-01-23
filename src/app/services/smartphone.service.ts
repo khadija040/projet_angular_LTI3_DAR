@@ -7,6 +7,9 @@ import { Smartphone } from '../models/smartphone.models';
   providedIn: 'root'
 })
 export class SmartphoneService {
+  getAllSmartphones(): Observable<Smartphone[]> {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'http://localhost:3000/smartphones';  // URL de ton API
 
   constructor(private http: HttpClient) {}

@@ -1,0 +1,97 @@
+<div class="relative">
+  <!-- Banner Section -->
+  <div class="bg-gradient-to-b from-red-500 to-red-800 h-64 flex flex-col items-center justify-center text-white px-4">
+    <h1 class="text-center text-3xl font-extrabold mb-2 font-serif">
+      Search according to your needs
+    </h1>
+    <p class="text-lg text-center">
+      Discover the best opportunities and make your dream become reality.
+    </p>
+  </div>
+
+  <!-- Search Bar Section -->
+  <div class="px-4">
+    <div class="relative w-full sm:absolute sm:-bottom-10 sm:left-0">
+      <div class="bg-white border border-gray-300 shadow-2xl rounded-lg mx-auto max-w-full sm:max-w-4xl p-4">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-2 flex-wrap">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="flex-grow p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+          />
+          <select class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600">
+            <option value="">Category</option>
+            <option value="house">House</option>
+            <option value="apartment">Apartment</option>
+            <option value="condo">Condo</option>
+          </select>
+          <input
+            type="number"
+            placeholder="Min Price"
+            class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+          />
+          <input
+            type="number"
+            placeholder="Max Price"
+            class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+          />
+          <button
+            class="bg-red-600 text-white p-2 justify-center rounded-md hover:bg-red-700 w-full sm:w-auto flex-shrink-0 mt-2 sm:mt-0"
+          >
+            <i class="bx bx-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Smartphones List Section -->
+<div class="mt-20 px-6">
+  <h2 class="text-3xl font-extrabold text-gray-800 text-center my-6">
+    Liste des Smartphones
+  </h2>
+  <section
+    id="Smartphones"
+    class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
+  >
+    <!-- Loop over smartphones -->
+    <div
+      class="bg-white rounded-lg overflow-hidden shadow-lg ring-4 ring-gray-600 ring-opacity-40 w-72 duration-500 hover:scale-105 hover:shadow-xl"
+      *ngFor="let smartphone of smartphones; let i = index"
+    >
+      <div class="relative">
+        <img
+          *ngIf="smartphone.photo"
+          [src]="'assets/' + smartphone.photo"
+          alt="{{ smartphone.nom }}"
+          class="h-80 w-72 object-cover rounded-t-lg"
+        />
+      </div>
+      <div class="p-4 w-72">
+        <h3 class="text-lg font-bold mb-2 text-black capitalize">
+          {{ smartphone.nom }}
+        </h3>
+        <p class="font-semibold text-xs text-black">
+          <span>{{ smartphone.prix }} €</span>
+        </p>
+
+        <div class="flex justify-end">
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full mx-2"
+            (click)="showDetails(i)"
+          >
+            <i class="bx bxs-info-circle"></i>
+          </button>
+
+          <button
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full mx-2"
+            (click)="editSmartphone(i)"
+          >
+            <i class="bx bxs-pen"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
