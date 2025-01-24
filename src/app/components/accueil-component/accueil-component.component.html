@@ -1,24 +1,25 @@
 <main class="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
     <header class="h-24 sm:h-32 flex items-center z-30 w-full">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <div class="uppercase text-gray-800 dark:text-white font-black text-3xl">
-                Watch.ME
+            <div class=" uppercase text-gray-800 dark:text-white font-black text-3xl">
+                <span class="text-rose-700">Smart</span>Place
             </div>
             <div class="flex items-center">
                 <nav class="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
-                    <a href="#" class="py-2 px-6 flex">
+                    <a routerLink="/" routerLinkActive="text-deepRed" class="py-2 px-6 flex">
                         Home
                     </a>
-                    <a href="#" (click)="showList" class="py-2 px-6 flex">
+                    <a routerLink="/List" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
                         Product
                     </a>
-                    <a href="#" class="py-2 px-6 flex">
+                    <a routerLink="/contact" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
                         Contact
                     </a>
-                    <a href="#" class="py-2 px-6 flex">
+                    <a routerLink="/cart" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
                         Cart
                     </a>
                 </nav>
+
                 <button class="lg:hidden flex flex-col ml-4">
                     <span class="w-6 h-1 bg-gray-800 dark:bg-white mb-1">
                     </span>
@@ -52,15 +53,15 @@
                         class="uppercase py-2 px-4 rounded-lg bg-red-800 border-2 border-transparent text-white text-md mr-4 hover:bg-red-700">
                         Get started
                     </a>
-                    <a routerLink="/search"
+                    <a routerLink="/List"
                         class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-red-800 text-red-800 dark:text-white hover:bg-red-700 hover:text-white text-md cursor-pointer">
-                        <button>Look Over</button>
+                        <button (click)="showList(i)">Look Over</button>
                     </a>
                 </div>
             </div>
         </div>
+        <div *ngFor="let smartphone of smartphones; let i = index"></div>
     </div>
-
 </main>
 
 <div>
@@ -194,12 +195,15 @@
         </div>
     </div>
 </div>
-<div class="mt-8 bg-deppBurgundy pt-9">
+
+
+
+<div class="mt-8 bg-gray-900 pt-9">
     <div class="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
         <div class="flex flex-col justify-between sm:px-[18px] md:flex-row md:px-10">
             <div class="md:w-[316px]">
                 <h1 class="text-white font-extrabold">
-                    <span class="text-rose-600">YOUR</span>LOGO
+                    <span class="text-rose-700">Smart</span>Place
                 </h1>
 
                 <p class="mt-[18px] text-[15px] font-normal text-white/[80%]">Lorem ipsum dolor sit amet consectetur

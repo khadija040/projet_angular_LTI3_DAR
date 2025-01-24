@@ -1,0 +1,134 @@
+[ 
+  { 
+    "nom": "Pixel 6", 
+    "marque": "Google", 
+    "description": "reglel sa reundeul", 
+    "prix": 865, 
+    "photo": "pixel.png", 
+    "ram": "6", 
+    "rom": "64", 
+    "ecran": "6 pouces", 
+    "couleur": "Rose" 
+  }, 
+  { 
+    "nom": "Samsung Galaxy S15 5G", 
+    "marque": "Samsung", 
+    "description": "rtyuiouytyuiop[uio", 
+    "prix": 1339, 
+    "photo": "samsung.png", 
+    "ram": "2", 
+    "rom": "32", 
+    "ecran": "6,8pouces", 
+    "couleur": "Blanc" 
+  }, 
+  { 
+    "nom": "Iphone 16", 
+    "marque": "Apple", 
+    "description": "rtyuiouytyuiop[uio", 
+    "prix": 3888, 
+    "photo": "iphone16.png", 
+    "ram": "4", 
+    "rom": "64", 
+    "ecran": "7 pouces", 
+    "couleur": "Noir" 
+  }, 
+  { 
+    "nom": "Iphone15", 
+    "marque": "Apple", 
+    "description": "woooooooooooooooooooy", 
+    "prix": 1278, 
+    "photo": "iphone15.png", 
+    "ram": "8", 
+    "rom": "64", 
+    "ecran": "6.9 pouces", 
+    "couleur": "Blanc" 
+  }, 
+  { 
+    "nom": "Samsung Galaxy Z Fold", 
+    "marque": "Samsung", 
+    "description": "ojoijooihuiguhilek;jojoiehuiiudde", 
+    "prix": 1845, 
+    "photo": "fold.png", 
+    "ram": "6", 
+    "rom": "64", 
+    "ecran": "6 pouces", 
+    "couleur": "Noir" 
+  }, 
+  { 
+    "nom": "Iphone Xs", 
+    "marque": "Apple", 
+    "description": "wuoiooiheiu", 
+    "prix": 767, 
+    "photo": "xs.png", 
+    "ram": "2", 
+    "rom": "32", 
+    "ecran": "5.9 pouces", 
+    "couleur": "Gold" 
+  }, 
+  { 
+    "nom": "Iphone xr", 
+    "marque": "Apple", 
+    "description": "rtyuioiuytrertyuiopoiy", 
+    "prix": 1257, 
+    "photo": "xr.png", 
+    "ram": "2", 
+    "rom": "32", 
+    "ecran": "6.9 pouces", 
+    "couleur": "Rouge" 
+  }, 
+  { 
+    "nom": "Tecno camon 30s", 
+    "marque": "Tecno", 
+    "description": "yufrop[o-uitrieooijee", 
+    "prix": 396, 
+    "photo": "tecno common.png", 
+    "ram": "2", 
+    "rom": "32", 
+    "ecran": "7pouces", 
+    "couleur": "Noir" 
+  }, 
+  { 
+    "nom": "Samsung Galaxy Z flip", 
+    "marque": "Samsung", 
+    "description": "iiuirgfuhicnioj", 
+    "prix": 1830, 
+    "photo": "flip2.png", 
+    "ram": "2", 
+    "rom": "32", 
+    "ecran": "6,8pouces", 
+    "couleur": "Noir" 
+  }, 
+  { 
+    "nom": "Oppo A16", 
+    "marque": "Oppo", 
+    "description": "nhdeiiiuryuv", 
+    "prix": 500, 
+    "photo": "oppo.png", 
+    "ram": "4", 
+    "rom": "64", 
+    "ecran": "7pouces", 
+    "couleur": "Bleu" 
+  }, 
+  { 
+    "nom": "Huawei XT40", 
+    "marque": "Huawei", 
+    "description": "nendoijoiejode", 
+    "prix": 1469, 
+    "photo": "huawei.png", 
+    "ram": "8", 
+    "rom": "128", 
+    "ecran": "6,8pouces", 
+    "couleur": "Rouge" 
+  }, 
+  { 
+    "nom": "Infinix note 40", 
+    "marque": "Infinix", 
+    "description": "bnfiujfiukwjiodnioj", 
+    "prix": 204, 
+    "photo": "infinix.png", 
+    "ram": "4", 
+    "rom": "64", 
+    "ecran": "7 pouces", 
+    "couleur": "Bleu" 
+  } 
+]

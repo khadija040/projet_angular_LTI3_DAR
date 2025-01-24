@@ -1,5 +1,5 @@
-import { Component, NgModule } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { SearchComponent } from '../../pages/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-accueil-component',
   standalone: true,
-  imports: [FormsModule, CommonModule ],
+  imports: [FormsModule, CommonModule, RouterModule ],
   template: `<div><img [src]="imagePath" alt="" /></div>`,
   templateUrl: './accueil-component.component.html',
   styleUrl: './accueil-component.component.css'
@@ -17,6 +17,8 @@ import { CommonModule } from '@angular/common';
 export class AccueilComponentComponent {
   imagePath: string = 'assets/accueil-img.png';
   searchQuery: string = '';
+  smartphones: any;
+  i!: number;
 
   constructor(private router: Router) { }
 

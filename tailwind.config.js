@@ -11,6 +11,9 @@ module.exports = {
         wineRed: '#9F1D35',
         scarlet: '#650016',
       },
+      fontFamily: {
+        'playwrite': ['Playwrite India', 'sans-serif'],
+      },
     },
   },
   plugins: [],
