@@ -12,10 +12,10 @@
                     <a routerLink="/List" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
                         Product
                     </a>
-                    <a routerLink="/contact" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
+                    <a routerLink="/Contact" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
                         Contact
                     </a>
-                    <a routerLink="/cart" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
+                    <a routerLink="/Cart" routerLinkActive="text-rose-600" class="py-2 px-6 flex">
                         Cart
                     </a>
                 </nav>
@@ -45,13 +45,14 @@
                     <span class="text-5xl sm:text-7xl">Smart</span>
                 </h1>
                 <p class="text-sm sm:text-base text-gray-700 dark:text-white">
-                    Dimension of reality that makes change possible and understandable. An indefinite and homogeneous
-                    environment in which natural events and human existence take place.
+                    Explore a wide selection of smartphones, from the latest innovations to classic models, to meet all
+                    your expectations. Enjoy simple and secure navigation, with options adapted to each budget and
+                    attentive customer service to assist you in your purchase.
                 </p>
                 <div class="flex mt-8">
-                    <a href="#"
+                    <a routerLink="/Login"
                         class="uppercase py-2 px-4 rounded-lg bg-red-800 border-2 border-transparent text-white text-md mr-4 hover:bg-red-700">
-                        Get started
+                        <button (click)="Login(i)">Get started</button>
                     </a>
                     <a routerLink="/List"
                         class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-red-800 text-red-800 dark:text-white hover:bg-red-700 hover:text-white text-md cursor-pointer">
@@ -92,12 +93,16 @@
                                     class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Add
                                     to cart</button>
                             </div>
-                            <div class="absolute bottom-2 right-5">
-                                <button
-                                    class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Details</button>
+                            <div
+                                class="absolute bottom-2 right-5 bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">
+                                <button (click)="showDetails(i)">
+                                    Details
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    <div *ngFor="let smartphone of smartphones; let i = index"></div>
                 </div>
             </div>
             <!-- end card -->
@@ -125,7 +130,8 @@
                             </div>
                             <div class="absolute bottom-2 right-5">
                                 <button
-                                    class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Details</button>
+                                    class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100"
+                                    (click)="showDetails(i)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -156,7 +162,8 @@
                             </div>
                             <div class="absolute bottom-2 right-5">
                                 <button
-                                    class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Details</button>
+                                    class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100"
+                                    (click)="showDetails(i)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -186,7 +193,8 @@
                             </div>
                             <div class="absolute bottom-2 right-5">
                                 <button
-                                    class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Details</button>
+                                    class="bg-red-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100"
+                                    (click)="showDetails(i)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -195,8 +203,131 @@
         </div>
     </div>
 </div>
+<div class="bg-gray-800 py-6">
+    <div class="p-4 mb-4 text-lg text-center leading-tight first-letter:capitalize font-medium dark:text-gray-100">
+        <h2 class="text-3xl font-bold text-white mb-8 text-center">Our Best Current Offers</h2>
+    </div>
+
+    <!-- Conteneur pour les cartes produits -->
+    <div class="flex space-x-4 overflow-x-auto">
+        <!-- Affichage des produits -->
+        <div *ngFor="let slide of slides"
+            class="relative flex-none w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-md">
+            <!-- Image du produit avec un badge de réduction -->
+            <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl w-full" href="#">
+                <img class="object-cover" [src]="slide.imgUrl" alt="product image" />
+                <span
+                    class="absolute top-0 left-0 m-2 rounded-full bg-red-600 px-2 text-center text-sm font-medium text-white">
+                    {{ slide.discount }}% OFF
+                </span>
+            </a>
+
+            <div class="mt-4 px-5 pb-5">
+                <!-- Titre du produit -->
+                <a href="#">
+                    <h5 class="text-xl tracking-tight text-white font-bold">{{ slide.title }}</h5>
+                </a>
+
+                <div class="mt-2 mb-5 flex items-center justify-between">
+                    <!-- Prix -->
+                    <p>
+                        <span class="text-3xl font-bold text-white">${{ slide.price }}</span>
+                        <span class="text-base text-deepRed line-through">${{ slide.originalPrice }}</span>
+                    </p>
+
+                    <!-- Évaluations du produit -->
+                    <div class="flex items-center">
+                        <ng-container *ngFor="let star of [].constructor(slide.rating); let i = index">
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                        </ng-container>
+
+                        <span class="mr-2 ml-3 rounded bg-yellow-500 px-2.5 py-0.5 text-xs font-semibold">{{
+                            slide.rating
+                            }}.0</span>
+                    </div>
+                </div>
+
+                <!-- Bouton Ajouter au panier -->
+                <a routerLink="/Cart"
+                    class="flex items-center justify-center rounded-md bg-rose-800 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Add to cart
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation du carousel -->
+    <div class="absolute bottom-5 left-0 right-0 flex justify-between px-3">
+        <button (click)="prevSlide()" class="text-white bg-gray-800 p-2 rounded-full">
+            ←
+        </button>
+        <button (click)="nextSlide()" class="text-white bg-gray-800 p-2 rounded-full">
+            →
+        </button>
+    </div>
+</div>
 
 
+<section class="text-gray-900 body-font">
+    <div class="flex justify-center mt-10 text-4xl font-regular">
+        Why Us?
+    </div>
+    <div class="container px-5 py-12 mx-auto">
+        <div class="flex flex-wrap text-center justify-center">
+            <div class="p-4 md:w-1/4 sm:w-1/2 cursor-pointer">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/256/7075/7075373.png" class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">Repair Center</h2>
+                    <p class="text-gray-700 py-5">Repair with 100% authentic official parts</p>
+                </div>
+            </div>
+
+            <div class="p-4 md:w-1/4 sm:w-1/2 cursor-pointer">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/256/388/388531.png" class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">Guarantee</h2>
+                    <p class="text-gray-700 py-5">Local warranty policy protection is provided</p>
+                </div>
+            </div>
+
+            <div class="p-4 md:w-1/4 sm:w-1/2 cursor-pointer">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/256/3729/3729562.png" class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">Renewal Program</h2>
+                    <p class="text-gray-700 py-5">Get the device of your dreams with peace of mind thanks to the
+                        trade-in program, and take action for the planet</p>
+                </div>
+            </div>
+
+            <div class="p-4 md:w-1/4 sm:w-1/2 cursor-pointer">
+                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
+                    <div class="flex justify-center">
+                        <img src="https://cdn-icons-png.flaticon.com/256/5194/5194529.png" class="w-32 mb-3">
+                    </div>
+                    <h2 class="title-font font-regular text-2xl text-gray-900">User Manual</h2>
+                    <p class="text-gray-700 py-5">Search and download user manuals for free</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <div class="mt-8 bg-gray-900 pt-9">
     <div class="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
@@ -206,27 +337,12 @@
                     <span class="text-rose-700">Smart</span>Place
                 </h1>
 
-                <p class="mt-[18px] text-[15px] font-normal text-white/[80%]">Lorem ipsum dolor sit amet consectetur
-                    adipisicing
-                    elit. Eos, fugit non. Incidunt dolorum adipisci, tempore asperiores nemo odio facere officiis enim
-                    animi
-                    placeat eaque nesciunt alias beatae id, at dicta.</p>
+                <p class="mt-[18px] text-[15px] font-normal text-white/[80%]">Discover a wide selection of smartphones
+                    from all brands, offering cutting-edge features at competitive prices. Enjoy a simple, fast and
+                    secure online shopping experience, with flexible payment options and dedicated customer service.
+                    Whether you are looking for the latest model or an affordable smartphone, SmartPlace helps you make
+                    the best choice.</p>
                 <div class="mt-[18px] flex gap-4">
-                    <a class="hover:scale-110" target="_blank" href="#"><img alt="facebook icon" loading="lazy"
-                            width="36" height="36" decoding="async" data-nimg="1" style="color:transparent"
-                            src="https://www.englishyaari.com/img/facebook.svg" /></a><a class="hover:scale-110"
-                        target="_blank" href="/"><img alt="linkdin icon" loading="lazy" width="36" height="36"
-                            decoding="async" data-nimg="1" style="color:transparent"
-                            src="https://www.englishyaari.com/img/linkdin.svg" /></a><a class="hover:scale-110"
-                        target="_blank" href="/"><img alt="instagram icon" loading="lazy" width="36" height="36"
-                            decoding="async" data-nimg="1" style="color:transparent"
-                            src="https://www.englishyaari.com/img/instagram1.svg" /></a><a class="hover:scale-110"
-                        target="_blank" href=""><img alt="twitter icon" loading="lazy" width="36" height="36"
-                            decoding="async" data-nimg="1" style="color:transparent"
-                            src="https://www.englishyaari.com/img/twitter.svg" /></a><a class="hover:scale-110"
-                        target="_blank" href="https://www.youtube.com/"><img alt="youtube icon" loading="lazy"
-                            width="36" height="36" decoding="async" data-nimg="1" style="color:transparent"
-                            src="https://www.englishyaari.com/img/youtube.svg" /></a>
                 </div>
             </div>
             <div class="md:w-[316px]">
@@ -239,8 +355,8 @@
                         </svg>
                     </div>
                     <div class="ml-[18px]">
-                        <a href="tel:+911800123444" class="font-Inter text-[14px] font-medium text-white">+91
-                            1800123444</a>
+                        <a href="tel:+911800123444" class="font-Inter text-[14px] font-medium text-white">+221
+                            771234567</a>
                         <p class="font-Inter text-[12px] font-medium text-white">Support Number</p>
                     </div>
                 </div>
@@ -268,9 +384,8 @@
                         </svg>
                     </div>
                     <div class="ml-[18px]">
-                        <a href="mailto:help@lorem.com" class="font-Inter text-[14px] font-medium text-[#fff]">Sub
-                            Nerul, Mumbia,
-                            India, 123456</a>
+                        <a href="mailto:help@lorem.com" class="font-Inter text-[14px] font-medium text-[#fff]">Dakar,
+                            Senegal</a>
                         <p class="font-Inter text-[12px] font-medium text-white">Address</p>
                     </div>
                 </div>
@@ -281,13 +396,13 @@
                     <ul>
                         <li class="mt-[15px]"><a
                                 class="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                href="/">Home</a></li>
+                                routerLink="/">Home</a></li>
                         <li class="mt-[15px]"><a
                                 class="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                href="/our-tutors">Products</a></li>
+                                routerLink="/List">Products</a></li>
                         <li class="mt-[15px]"><a
                                 class="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                href="/become-a-tutor">Contact</a></li>
+                                routerLink="/Contact">Contact</a></li>
                         <li class="mt-[15px]"><a
                                 class="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
                                 href="/terms-and-conditions">Terms and conditions</a></li>
@@ -299,12 +414,12 @@
                 <div class="mt-6 flex flex-col gap-4 sm:mt-0">
                     <p class="text-deutziawhite font-inter text-[18px] font-medium">Download the app</p>
                     <div class="flex gap-4 sm:flex-col">
-                        <a target="_blank" href="#"><img alt="facebook icon" loading="lazy" width="168" height="50"
+                        <a target="_blank" href="#"><img alt="facebook icon" loading="lazy" width="40" height="40"
                                 decoding="async" data-nimg="1" style="color:transparent"
-                                src="https://www.englishyaari.com/img/google-store.svg" /></a><a target="_blank"
-                            href="#"><img alt="facebook icon" loading="lazy" width="168" height="50" decoding="async"
-                                data-nimg="1" style="color:transparent"
-                                src="https://www.englishyaari.com/img/apple-store.svg" /></a>
+                                src="https://cdn-icons-png.flaticon.com/256/300/300218.png" /></a>
+                        <a target="_blank" href="#"><img alt="facebook icon" loading="lazy" width="40" height="40"
+                                decoding="async" data-nimg="1" style="color:transparent"
+                                src="https://cdn-icons-png.flaticon.com/256/5977/5977575.png" /></a>
                     </div>
                 </div>
             </div>
@@ -314,7 +429,7 @@
             <p class="text-[10px] font-normal text-white md:text-[12px]">
                 © Copyright
                 <!-- -->2024
-                <!-- -->, All Rights Reserved by YOUR WEBSITES. PVT. LTD
+                <!-- -->, All Rights Reserved
             </p>
         </div>
     </div>

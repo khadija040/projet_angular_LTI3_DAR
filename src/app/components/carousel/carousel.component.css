@@ -1,0 +1,11 @@
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carousel .slide {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+  

@@ -1,42 +1,33 @@
-// import { Injectable } from '@angular/core';
-// import { BehaviorSubject } from 'rxjs';
-// import { CartItem } from '../models/cart-item';
+import { Injectable } from '@angular/core';
 
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class CartService {
-//   private cartItems: CartItem[] = [];
-//   private cartSubject = new BehaviorSubject<CartItem[]>(this.cartItems);
+@Injectable({
+  providedIn: 'root',
+})
+export class CartService {
+  private cartItems: any[] = [];
 
-//   getCart() {
-//     return this.cartSubject.asObservable();
-//   }
+  getCartItems() {
+    return this.cartItems;
+  }
 
-//   addItem(item: CartItem) {
-//     const existingItem = this.cartItems.find((cartItem) => cartItem.id === item.id);
-//     if (existingItem) {
-//       existingItem.quantity += item.quantity;
-//     } else {
-//       this.cartItems.push(item);
-//     }
-//     this.cartSubject.next(this.cartItems);
-//   }
+  addToCart(product: any) {
+    const existingItem = this.cartItems.find(item => item.id === product.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      this.cartItems.push({ ...product, quantity: 1 });
+    }
+  }
 
-//   updateQuantity(itemId: string, quantity: number) {
-//     const item = this.cartItems.find((cartItem) => cartItem.id === itemId);
-//     if (item) {
-//       item.quantity = quantity;
-//       this.cartSubject.next(this.cartItems);
-//     }
-//   }
+  removeFromCart(productId: number) {
+    this.cartItems = this.cartItems.filter(item => item.id !== productId);
+  }
 
-//   removeItem(itemId: string) {
-//     this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
-//     this.cartSubject.next(this.cartItems);
-//   }
+  clearCart() {
+    this.cartItems = [];
+  }
 
-//   getTotalCost() {
-//     return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-//   }
-// }
+  getTotalCost() {
+    return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+}
